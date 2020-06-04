@@ -1,9 +1,9 @@
-var shell = $('.shell').resizable({
-    minHeight: 108,
-    minWidth: 250
-}).draggable({
-    handle: '> .status-bar .title'
-});
+// var shell = $('.shell').resizable({
+//     minHeight: 108,
+//     minWidth: 250
+// }).draggable({
+//     handle: '> .status-bar .title'
+// });
 // Fake in memory filesystem
 var fs = {
     'projects': {
@@ -133,24 +133,29 @@ function completion(string, callback) {
 var term = $('.content').terminal(commands, {
     prompt: prompt(),
     completion: completion,
-    // detect iframe codepen preview
-    enabled: $('body').attr('onload') === undefined,
+    greetings: greetings()
 });
-// for codepen preview
-if (!term.enabled()) {
-    term.find('.cursor').addClass('blink');
-}
-function prompt(type) {
+
+function prompt() {
     return function(callback) {
-        var prompt;
-        if (type === 'windows') {
-            prompt = 'C:\\' + path.join('\\') + '> ';
-        } else {
-            prompt = 'user@host:/' + path.join('/') + '$ ';
-        }
+        var prompt = 'brady@host:/' + path.join('/') + '$ ';
         $('.title').html(prompt);
         callback(prompt);
     };
+}
+function greetings(){
+    return function(callback) {
+        var greeting = String.raw`
+    __                   __      __                    
+   / /_  _________ _____/ /_  __/ /____  _________ ___ 
+  / __ \/ ___/ __ ${"`"}/ __  / / / / __/ _ \/ ___/ __ ${"`"}__ \
+ / /_/ / /  / /_/ / /_/ / /_/ / /_/  __/ /  / / / / / /
+/_.___/_/   \__,_/\__,_/\__, /\__/\___/_/  /_/ /_/ /_/ 
+                       /____/                    
+                                                v1.0      
+ `
+    callback(greeting);
+    }
 }
 $('#type').on('change', function() {
     shell.removeClass('osx windows ubuntu default custom').addClass(this.value);
@@ -170,4 +175,3 @@ $('#type, #dark').on('change', function() {
         term.focus();
     }, 400)
 });
-github && github('jcubic/jquery.terminal');
