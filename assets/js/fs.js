@@ -107,5 +107,5 @@ Specializing in Information Assurance and Cyber Security
                     "baz.txt": "baz content"
                 }
             }
-        },
+        }
     };
