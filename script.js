@@ -68,6 +68,12 @@ var commands = {
     email: function (){
         window.location.href = "mailto:brady.gerndt@gmail.com";
     },
+    github: function () {
+        window.open("https://github.com/bradygerndt");
+    },
+    linkedin: function () {
+        window.open("https://www.linkedin.com/in/bradygerndt/");
+    },
     help: function() {
         this.echo('Available commands: ' + Object.keys(commands).join(', '));
     }
