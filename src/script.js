@@ -1,24 +1,4 @@
-// var shell = $('.shell').resizable({
-//     minHeight: 108,
-//     minWidth: 250
-// }).draggable({
-//     handle: '> .status-bar .title'
-// });
-// Fake in memory filesystem
-var fs = {
-    'projects': {
-        'baz.txt': 'Hello this is file baz.txt',
-        'quux.txt': "Lorem Ispum (quux.txt)",
-        'foo.txt': "Hello, World!",
-        'bar.txt': "Wellcome to the bar",
-        "terminal": {
-            "foo": {
-                "bar.txt": "hello bar",
-                "baz.txt": "baz content"
-            }
-        }
-    }
-};
+import {fs} from './assets/js/resume.js'
 
 var path = [];
 var cwd = fs;
@@ -133,8 +113,8 @@ function completion(string, callback) {
 var term = $('.content').terminal(commands, {
     prompt: prompt(),
     completion: completion,
-    greetings: greetings()
-});
+    greetings: greetings(),
+})
 
 function prompt() {
     return function(callback) {
@@ -157,21 +137,4 @@ function greetings(){
     callback(greeting);
     }
 }
-$('#type').on('change', function() {
-    shell.removeClass('osx windows ubuntu default custom').addClass(this.value);
-    term.toggleClass('underline-animation', this.value == 'windows');
-    term.set_prompt(prompt(this.value));
-});
-$('#dark').on('change', function() {
-    shell.removeClass('dark light');
-    if (this.checked) {
-        shell.addClass('dark');
-    } else {
-        shell.addClass('light');
-    }
-});
-$('#type, #dark').on('change', function() {
-    setTimeout(function() {
-        term.focus();
-    }, 400)
-});
+

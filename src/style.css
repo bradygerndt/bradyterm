@@ -1,0 +1,34 @@
+body {
+    height: 100%;
+    margin: 0%;
+}
+body .shell {
+    height: 100%;
+    border-radius: 0px; 
+}
+
+.shell .typed-cursor, .shell .cursor {
+    background: transparent;
+}
+.terminal-wrapper {
+    padding-left: 1em;
+}
+
+.shell .terminal {
+    --color: #aaa;
+}
+.shell.ubuntu .terminal {
+    --background: #300924;
+}
+
+.shell terminal.content,
+.shell.osx.dark .content,
+.shell.ubuntu .content {
+    background-color: var(--background, #222) !important;
+}
+.cmd {
+    background-color: inherit;
+}
+
+
+

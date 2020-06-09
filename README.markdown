@@ -1,5 +1,6 @@
-# Resizable Terminal + shell.js css
+# Terminal resume example
+Example of Jquery terminal used to create a terminal containing resume and portfolio information.
 
-A Pen created on CodePen.io. Original URL: [https://codepen.io/jcubic/pen/WZvYGj](https://codepen.io/jcubic/pen/WZvYGj).
+Adapted from an example shell on CodePen.io. Original URL: [https://codepen.io/jcubic/pen/WZvYGj](https://codepen.io/jcubic/pen/WZvYGj).
 
 
