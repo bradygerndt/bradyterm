@@ -62,7 +62,7 @@ Web Development
     -NodeJS 
     -HTML 
     -CSS 
-    -AngularJS 
+    -AngularJS cd ..
     -Bootstrap
     -Sass
     -Git
@@ -83,15 +83,15 @@ ServiceNow
             `
         },
         'education': {
-            'bs_is.txt': `
-            Marquette University
-            Bachelor of Science, Information Technology • 2011 — 2015
-            `,
+'bs_is.txt': `
+Marquette University
+Bachelor of Science, Information Technology • 2011 — 2015
+`,
             'ms_comp.txt': `
-            Marquette University
-            Master of Science, Computing • 2016 — 2018
-            Specializing in Information Assurance and Cyber Security
-            `
+Marquette University
+Master of Science, Computing • 2016 — 2018
+Specializing in Information Assurance and Cyber Security
+`
         },
         'certification': {
             'aws_sa.txt': "AWS Certified Solutions Architect -> https://www.certmetrics.com/amazon/public/badge.aspx?i=1&t=c&d=2019-12-10&ci=AWS01104726"
