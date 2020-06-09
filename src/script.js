@@ -1,4 +1,4 @@
-import {fs} from './assets/js/resume.js'
+import {fs} from './assets/js/fs.js'
 
 var path = [];
 var cwd = fs;
@@ -114,6 +114,7 @@ var term = $('.content').terminal(commands, {
     prompt: prompt(),
     completion: completion,
     greetings: greetings(),
+    wrap: true
 })
 
 function prompt() {
