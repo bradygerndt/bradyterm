@@ -65,6 +65,9 @@ var commands = {
             this.echo(cwd[file]);
         }
     },
+    email: function (){
+        window.location.href = "mailto:brady.gerndt@gmail.com";
+    },
     help: function() {
         this.echo('Available commands: ' + Object.keys(commands).join(', '));
     }
