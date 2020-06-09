@@ -143,6 +143,8 @@ function greetings(){
 /_.___/_/   \__,_/\__,_/\__, /\__/\___/_/  /_/ /_/ /_/ 
                        /____/                    
                                                 v1.0      
+
+Review my info in a terminal emulator! Type 'help' to get a list of commands.
  `
     callback(greeting);
     }
