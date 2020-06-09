@@ -97,10 +97,7 @@ Specializing in Information Assurance and Cyber Security
             'aws_sa.txt': "AWS Certified Solutions Architect -> https://www.certmetrics.com/amazon/public/badge.aspx?i=1&t=c&d=2019-12-10&ci=AWS01104726"
         },
         'projects': {
-            'baz.txt': 'Hello this is file baz.txt',
-            'quux.txt': "Lorem Ispum (quux.txt)",
-            'foo.txt': "test, World!",
-            'bar.txt': "Wellcome to the bar",
+            'coming-soon.txt': "I'm workin' on it!",
             "terminal": {
                 "foo": {
                     "bar.txt": "hello bar",
