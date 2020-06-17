@@ -62,7 +62,7 @@ Web Development
     -NodeJS 
     -HTML 
     -CSS 
-    -AngularJS cd ..
+    -AngularJS
     -Bootstrap
     -Sass
     -Git
@@ -80,6 +80,22 @@ ServiceNow
     -Configuration management
     -ITSM
 
+            `,
+            'system-admin.txt': `
+System Administration
+    -Device discovery
+    -SNMP
+    -WMI
+    -Bash
+    -Powershell
+    -VMware
+    -Python
+
+            `,
+            'cloud-computing.txt': `
+Cloud Computing
+    -Cloud adoption
+    -Design and administration of cloud infrastructure/services on AWS
             `
         },
         'education': {
