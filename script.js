@@ -1,4 +1,5 @@
-import {fs} from './assets/js/fs.js'
+import { fs } from './assets/js/fs.js'
+
 
 var path = [];
 var cwd = fs;
@@ -8,7 +9,7 @@ function restore_cwd(fs, path) {
         var dir_name = path.shift();
         if (!is_dir(fs[dir_name])) {
             throw new Error('Internal Error Invalid directory ' +
-                            $.terminal.escape_brackets(dir_name));
+                $.terminal.escape_brackets(dir_name));
         }
         fs = fs[dir_name];
     }
@@ -21,7 +22,7 @@ function is_file(obj) {
     return typeof obj === 'string';
 }
 var commands = {
-    cd: function(dir) {
+    cd: function (dir) {
         this.pause();
         if (dir === '/') {
             path = [];
@@ -46,11 +47,11 @@ var commands = {
         }
         this.resume();
     },
-    ls: function() {
+    ls: function () {
         if (!is_dir(cwd)) {
             throw new Error('Internal Error Invalid directory');
         }
-        var dir = Object.keys(cwd).map(function(key) {
+        var dir = Object.keys(cwd).map(function (key) {
             if (is_dir(cwd[key])) {
                 return key + '/';
             }
@@ -58,14 +59,14 @@ var commands = {
         });
         this.echo(dir.join('\n'));
     },
-    cat: function(file) {
+    cat: function (file) {
         if (!is_file(cwd[file])) {
             this.error($.terminal.escape_brackets(file) + " don't exists");
         } else {
             this.echo(cwd[file]);
         }
     },
-    email: function (){
+    email: function () {
         window.location.href = "mailto:brady.gerndt@gmail.com";
     },
     github: function () {
@@ -74,7 +75,7 @@ var commands = {
     linkedin: function () {
         window.open("https://www.linkedin.com/in/bradygerndt/");
     },
-    help: function() {
+    help: function () {
         this.echo('Available commands: ' + Object.keys(commands).join(', '));
     }
 };
@@ -82,9 +83,9 @@ function completion(string, callback) {
     var command = this.get_command();
     var cmd = $.terminal.parse_command(command);
     function dirs(cwd) {
-        return Object.keys(cwd).filter(function(key) {
+        return Object.keys(cwd).filter(function (key) {
             return is_dir(cwd[key]);
-        }).map(function(dir) {
+        }).map(function (dir) {
             return dir + '/';
         });
     }
@@ -106,12 +107,12 @@ function completion(string, callback) {
                 p.pop();
             }
             var prefix = string.replace(/\/[^/]*$/, '');
-            callback(dirs(restore_cwd(fs, p)).map(function(dir) {
+            callback(dirs(restore_cwd(fs, p)).map(function (dir) {
                 return prefix + '/' + dir;
             }));
         }
     } else if (cmd.name === 'cat') {
-        var files = Object.keys(cwd).filter(function(key) {
+        var files = Object.keys(cwd).filter(function (key) {
             return is_file(cwd[key]);
         });
         callback(files);
@@ -119,7 +120,7 @@ function completion(string, callback) {
         callback(Object.keys(commands));
     }
 }
-var term = $('.content').terminal(commands, {
+$('.content').terminal(commands, {
     prompt: prompt(),
     completion: completion,
     greetings: greetings(),
@@ -127,15 +128,14 @@ var term = $('.content').terminal(commands, {
 })
 
 function prompt() {
-    return function(callback) {
+    return function (callback) {
         var prompt = 'brady@host:/' + path.join('/') + '$ ';
         $('.title').html(prompt);
         callback(prompt);
     };
 }
-function greetings(){
-    return function(callback) {
-        var greeting = String.raw`
+function greetings() {
+    var greeting = String.raw`
     __                   __      __                    
    / /_  _________ _____/ /_  __/ /____  _________ ___ 
   / __ \/ ___/ __ ${"`"}/ __  / / / / __/ _ \/ ___/ __ ${"`"}__ \
@@ -146,7 +146,6 @@ function greetings(){
 
 Review my info in a terminal emulator! Type 'help' to get a list of commands.
  `
-    callback(greeting);
-    }
+    return greeting;
 }
 
